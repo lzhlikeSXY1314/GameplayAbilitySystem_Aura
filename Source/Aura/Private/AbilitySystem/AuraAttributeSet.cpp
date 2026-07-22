@@ -7,6 +7,7 @@
 #include"GameFramework/Character.h"
 #include "AuraGameplayTags.h"
 
+
 UAuraAttributeSet::UAuraAttributeSet()
 {
 	const FAuraGameplayTags& GameplayTags = FAuraGameplayTags::Get();
@@ -65,6 +66,7 @@ void UAuraAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, 
 	if (Attribute == GetHealthAttribute())
 	{
 		NewValue = FMath::Clamp(NewValue,0.0f,GetMaxHealth());
+	
 	}
 	
 	if (Attribute == GetManaAttribute())
@@ -115,6 +117,9 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
+		UE_LOG(LogTemp, Error, TEXT("Changed Health On %s, Health : %f"),
+			*Props.TargetAvatarActor->GetName(),
+			GetHealth());
 	}
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
