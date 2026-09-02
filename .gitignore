@@ -1,0 +1,25 @@
+# 缓存文件夹
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+Build/
+
+# VS / VSCode 配置
+.vs/
+.vscode/
+*.sln
+*.suo
+*.user
+*.pdb
+*.obj
+
+# UE数据库文件
+*.sdf
+*.VC.db
+*.opensdf
+*.opendb
+
+# Mac/Xcode（Windows可以保留）
+*.xcodeproj/
+*.xcworkspace/
